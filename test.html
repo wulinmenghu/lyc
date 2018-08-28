@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            background: #eeeeee;
+        }
+        #controls {
+            position: absolute;
+            left: 25px;
+            top: 25px;
+        }
+        #canvas {
+            background: #ffffff;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+            -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            -box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        }
+    </style>
+
+</head>
+<body>
+<canvas id="canvas" width="600" height="400"></canvas>
+<input type="text" value="" id="box" style="border:2px solid groove;position:absolute;left:100px;top:100px;opacity:.5"
+       onkeypress="getKey();"/>
+</body>
+<script type="text/javascript">
+    var canvas=document.getElementById("canvas");
+
+    var context=canvas.getContext("2d");
+    function getMousePos(event) {
+        var e = event || window.event;
+        return {'x':e.clientX,'y':e.clientY);
+        alert(x);
+    }
+    //cument.getElementById("box").innerHTML=33;
+
+
+    // function getMousePos(event) {
+    //     var e = event || window.event;
+    //     var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+    //     var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+    //     var x = e.pageX || e.clientX + scrollX;
+    //     var y = e.pageY || e.clientY + scrollY;
+    //     alert('x: ' + x + '\ny: ' + y);
+    //     return { 'x': x, 'y': y };
+    // }
+    // var gmp=getMousePos()
+    // context.stroke();
+    // canvas.onmousedown = function(evt) {
+    //     evt = window.event || evt;
+    //     //获取canvas相对于浏览器圆点的坐标
+    //     var rect = canvas.getBoundingClientRect();
+    //     //获取圆心的位置
+    //     //获取鼠标在canvas上的位置
+    //     arcX = (evt.pageX - rect.left) * (canvas.width / rect.width);
+    //     arcY = (evt.pageY - rect.top) * (canvas.height / rect.height);
+    //     return {'x':arcX,'y':arcY}
+    // }
+    function drawLine(x1,y1,x2,y2)
+    {
+        context.beginPath();
+        context.moveTo(x1,y1);
+        context.lineTo(x2,y2);
+        //context.lineWidth=1;
+        context.strokeStyle="red";
+        context.stroke();
+        //context.closePath();
+    }
+    drawLine(100,100,200,200);
+
+    // Paint textPaint = new Paint( Paint.ANTI_ALIAS_FLAG);
+    // textPaint.setTextSize( 35);
+    // textPaint.setColor( Color.WHITE);
+    //
+    //
+    // // FontMetrics对象
+    // FontMetrics fontMetrics = textPaint.getFontMetrics();
+    // String text = "abcdefghijklmnopqrstu";
+    //
+    // // 计算每一个坐标
+    // float baseX = 0;
+    // float baseY = 100;
+    // float topY = baseY + fontMetrics.top;
+    // float ascentY = baseY + fontMetrics.ascent;
+    // float descentY = baseY + fontMetrics.descent;
+    // float bottomY = baseY + fontMetrics.bottom;
+    //
+    // Canvas.drawText(666,10,100,textPaint);
+
+    // protected void onDraw(Canvas canvas) {
+    //     super.onDraw(canvas);
+    //     String testString = "测试：gafaeh:1234";
+    //     Paint mPaint = new Paint();
+    //     mPaint.setStrokeWidth(3);
+    //     mPaint.setTextSize(40);
+    //     mPaint.setColor(Color.RED);
+    //     mPaint.setTextAlign(Align.LEFT);
+    //     Rect bounds = new Rect();
+    //     mPaint.getTextBounds(testString, 0, testString.length(), bounds);
+    //     canvas.drawText(testString, getMeasuredWidth()/2 - bounds.width()/2, getMeasuredHeight()/2 + bounds.height()/2, mPaint);
+    // }
+
+    // var drawing = document.getElementById("canvas");
+    //
+    // if(drawing.getContext){
+    //     context.font = 'bold 16px Arial';
+    //     context.textAlign = 'center';
+    //     context.textBaseline = 'middle';
+    //     context.fillText('12',0,-85);
+    // }
+
+    // //获取Canvas对象(画布)
+    // var canvas = document.getElementById("canvas");
+    // //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+    // if(canvas.getContext){
+    //     //获取对应的CanvasRenderingContext2D对象(画笔)
+    //     var ctx = canvas.getContext("2d");
+    //
+    //     //设置字体样式
+    //     ctx.font = "30px Courier New";
+    //     //设置字体填充颜色
+    //     ctx.fillStyle = "blue";
+    //     //从坐标点(50,50)开始绘制文字
+    //     //fillText()方法接受四个参数：
+    //
+    //     //text：需要绘制的文本内容
+    //     //x：指定绘制文本在Canvas画布中起始位置的x轴坐标点
+    //     //y：指定绘制文本在Canvas画布中起始位置的y轴坐标点
+    //     //maxWidth：指定绘制文本的最大宽度
+    //     ctx.fillText("CodePlayer+中文测试", 20, 20);
+    // }
+
+    // /**
+    //  * TextBox's instance
+    //  */
+    // private TextBox inputName = null;
+    //
+    // /**
+    //  * 「cancel」Command
+    //  * command in TextBox
+    //  */
+    // private Command cCancel = new Command("cancel", Command.CANCEL, 1);
+    //
+    // /**
+    //  * 「ok」Command
+    //  * command in TextBox
+    //  */
+    // private Command cOK = new Command("ok", Command.OK, 1);
+    //
+    // /**
+    //  * 保存在TextBox中已输入的值
+    //  */
+    // private String name = "";
+    //
+    // /**
+    //  * 调用TextBox
+    //  * The method disposes the key pressing action
+    //  * the code of pressed key
+    //  * @param key
+    //  */
+    // public void keyPressed(int key) {
+    //     if (key == Canvas.FIRE) {
+    //         inputName = new TextBox("请输入姓名", name, 8, TextField.ANY);
+    //         inputName.addCommand(cCancel);
+    //         inputName.addCommand(cOK);
+    //         inputName.setCommandListener(this);
+    //         Display.getDisplay(BustRoyal.instance).setCurrent(inputName);
+    //         //其中BustRoyal.instance为MIDlet的实例
+    //     }
+    // }
+    //
+    //
+    // /**
+    //  * TextBox中的command的处理
+    //  */
+    // public void commandAction(Command c, Displayable d) {
+    //     if (c == cCancel) {
+    //         Display.getDisplay(BustRoyal.instance).setCurrent(this);
+    //     } else if (c == cOK) {
+    //         name = inputName.getString().trim();
+    //         Display.getDisplay(BustRoyal.instance).setCurrent(this);
+    //     }
+    // }
+    // //文本框自动获取焦点
+    // setTimeout( function(){
+    //     try{
+    //         document.getElementById('box').focus();
+    //     } catch(e){}
+    // }, 200);
+
+</script>
+</html>
+
